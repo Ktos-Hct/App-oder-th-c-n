@@ -1,0 +1,74 @@
+MDScreen:
+    name:"Giaodiendathang"
+    MDFloatLayout:
+        md_bg_color: 1,1,1,1
+        MDIconButton:
+            icon:"arrow-left"
+            pos_hint:{"center_y":.95}
+            user_font_size:"30sp"
+            theme_text_color: "Custom"
+            text_color:rgba(26,24,58,255)
+            on_release:
+                root.manager.transition.direction="right"
+                root.manager.current="login"
+        MDLabel:
+            id:Danhsach
+            text: "Bàn số: "
+            font_size:"18sp"
+            pos_hint:{"center_y":.88}
+            halign:"center"
+            color: rgba(0,0,59,255)
+        MDLabel:
+            text: "Tổng giá trị đơn hàng của bạn là"
+            font_size:"18sp"
+            pos_hint:{"center_y":.85}
+            halign:"center"
+            color: rgba(0,0,59,255)
+        MDLabel:
+            id: Tongtien
+            text: "Hãy nhấn cập nhật"
+            font_size:"18sp"
+            pos_hint:{"center_y":.79}
+            halign:"center"
+            color: rgba(135,135,135,255)
+        MDLabel:
+            text: "Danh sách món ăn"
+            font_size:"18sp"
+            pos_hint:{"center_y":.75}
+            halign:"center"
+            color: rgba(135,135,135,255)
+        MDLabel:
+            id: doan
+            text: "0"
+            font_size:"18sp"
+            pos_hint:{"center_y":.70}
+            halign:"center"
+            color: rgba(135,135,135,255)
+        Button:
+            text:"Đặt món"
+            size_hint:0.3,0.065
+            pos_hint:{"center_x":.75,"center_y":.34}
+            background_clor:0,0,0,0
+            on_release:
+                app.thanhtoan()
+            canvas.before:
+                Color:
+                    rgb:rgba(52,0,231,255)
+                RoundedRectangle:
+                    size:self.size
+                    pos:self.pos
+                    radius:[5]
+        Button:
+            text:"Cập nhật"
+            size_hint:0.3,0.065
+            pos_hint:{"center_x":.25,"center_y":.34}
+            background_clor:0,0,0,0
+            on_release:
+                app.laydulieudangnhap(Danhsach,Tongtien,doan)
+            canvas.before:
+                Color:
+                    rgb:rgba(52,0,231,255)
+                RoundedRectangle:
+                    size:self.size
+                    pos:self.pos
+                    radius:[5]

@@ -1,0 +1,289 @@
+
+MDScreen:
+    name:"login"
+    MDBoxLayout:
+        orientation:"vertical"
+        MDBoxLayout:
+            orientation:"vertical"
+            adaptive_height:True
+            MDBoxLayout:
+                size_hint_y:None
+                height:dp(65)
+                AnchorLayout:
+                    anchor_y:'top'
+                    anchor_x:'left'
+                    MDIconButton:
+                        icon:"arrow-left"
+                AnchorLayout:
+                    anchor_y:'top'
+                    anchor_x:'right'
+                    MDBoxLayout:
+                        adaptive_size:True
+
+                        MDIconButton:
+                            icon:"cart"
+                            on_release:
+                                root.manager.transition.direction="left"
+                                root.manager.current="Giaodiendathang"
+        MDBoxLayout:
+            orientation:"vertical"
+            MDBoxLayout:
+                orientation:"vertical"
+                adaptive_height:True
+                MDBoxLayout:
+                    size_hint_y:None
+                    height:dp(55)
+                    spacing:dp(12)
+                    padding:dp(12)
+                    TabCard:
+                        icon:'food'
+                        text:"Thức ăn"
+                        on_release:
+                            chuyenmanhinh.current="manhinh1"
+                    TabCard:
+                        icon:'food-fork-drink'
+                        text:"Đồ uống"
+                        on_release:
+                            chuyenmanhinh.current="manhinh3"
+                    TabCard:
+                        icon:'food-apple'
+                        text:"Tráng Miệng"
+                        on_release:
+                            chuyenmanhinh.current="manhinh2"
+            ScreenManager:
+                id: chuyenmanhinh
+                Screen:
+                    name: "manhinh1"
+                    MDBoxLayout:
+                        ScrollView:
+                            MDGridLayout:
+                                cols:2
+                                padding:dp(20)
+                                spacing:dp(20)
+                                adaptive_height:True
+                                ElementCard:
+                                    image:'images/1.png'
+                                    price:'10'
+                                    rate:"Bánh mì"
+                                ElementCard:
+                                    image:'images/2.png'
+                                    price:'50'
+                                    rate:"Cá chép hấp"
+                                ElementCard:
+                                    image:'images/3.png'
+                                    price:'50'
+                                    rate:"Sườn nướng"
+                                ElementCard:
+                                    image:'images/4.png'
+                                    price:'20'
+                                    rate:"Bánh nướng"
+                                ElementCard:
+                                    image:'images/5.png'
+                                    price:'30'
+                                    rate:"Gà chiên"
+                                ElementCard:
+                                    image:'images/6.png'
+                                    price:'20'
+                                    rate:"Bánh kẹp"
+                Screen:
+                    name: "manhinh2"
+                    MDBoxLayout:
+                        ScrollView:
+                            MDGridLayout:
+                                cols:2
+                                padding:dp(20)
+                                spacing:dp(20)
+                                adaptive_height:True
+                                ElementCard:
+                                    image:'images/1.2.png'
+                                    price:'10'
+                                    rate:" Khoai tây chiên"
+                                ElementCard:
+                                    image:'images/1.1.png'
+                                    price:'10'
+                                    rate:"Sa lát rau củ"
+                                ElementCard:
+                                    image:'images/1.1.png'
+                                    price:'10'
+                                    rate:" Khoai tây chiên"
+                                ElementCard:
+                                    image:'images/1.2.png'
+                                    price:'10'
+                                    rate:" Sa lát rau củ"
+                                ElementCard:
+                                    image:'images/1.1.png'
+                                    price:'10'
+                                    rate:" Sa lát rau củ"
+                                ElementCard:
+                                    image:'images/1.2.png'
+                                    price:'10'
+                                    rate:" Khoai tây chiên"
+                Screen:
+                    name: "manhinh3"
+                    MDBoxLayout:
+                        ScrollView:
+                            MDGridLayout:
+                                cols:2
+                                padding:dp(20)
+                                spacing:dp(20)
+                                adaptive_height:True
+                                ElementCard:
+                                    image:'images/2.1.png'
+                                    price:'10'
+                                    rate:" Cô Ca"
+                                ElementCard:
+                                    image:'images/2.2.png'
+                                    price:'10'
+                                    rate:" Pép si"
+                                ElementCard:
+                                    image:'images/2.2.png'
+                                    price:'10'
+                                    rate:" Cô Ca"
+                                ElementCard:
+                                    image:'images/2.1.png'
+                                    price:'10'
+                                    rate:" Pép si"
+                                ElementCard:
+                                    image:'images/2.1.png'
+                                    price:'10'
+                                    rate:" Cô ca"
+                                ElementCard:
+                                    image:'images/2.2.png'
+                                    price:'10'
+                                    rate:" Pép si"
+            # bottom navigation appbar
+            MDBoxLayout:
+                size_hint_y:None
+                md_bg_color:.9,.9,.9,1
+                height:dp(60)
+                padding:[0,0,0,15]
+                MDBoxLayout:
+                    orientation:'vertical'
+                    MDIconButton:
+                        pos_hint:{'center_x':.5,'center_y':.5}
+                        icon:'home'
+                        theme_text_color:'Custom'
+                        text_color:app.theme_cls.primary_color
+                    MDLabel:
+                        text:'Đặt món'
+                        valign:"center"
+                        theme_text_color:'Custom'
+                        text_color:app.theme_cls.primary_color
+                        halign:"center"
+                MDBoxLayout:
+                    orientation:'vertical'
+                    MDIconButton:
+                        pos_hint:{'center_x':.5,'center_y':.5}
+                        icon:'bell'
+                    MDLabel:
+                        text:'Khuyến mãi'
+                        valign:"center"
+                        halign:"center"
+                MDBoxLayout:
+                    orientation:'vertical'
+                    MDIconButton:
+                        pos_hint:{'center_x':.5,'center_y':.5}
+                        icon:'cards-heart'
+                    MDLabel:
+                        text:'Ưu thích'
+                        valign:"center"
+                        halign:"center"
+                MDBoxLayout:
+                    orientation:'vertical'
+                    MDIconButton:
+                        pos_hint:{'center_x':.5,'center_y':.5}
+                        icon:'account'
+                        on_release:
+                            root.manager.transition.direction="left"
+                            root.manager.current="taikhoan"
+                    MDLabel:
+                        text:'Tài khoản'
+                        valign:"center"
+                        halign:"center"
+<ContentCustomSheet@MDBoxLayout>:
+    orientation: "vertical"
+    size_hint_y: None
+    height:dp(750)
+    image:''
+    rate:""
+    price:""
+    padding:dp(12)
+    spacing:dp(6)
+    RelativeLayout:
+        ElementCard:
+            pos_hint:{"x":.05,"y":.5}
+            image:root.image
+            rate:root.rate
+            price:root.price
+    MDLabel:
+        text:"Đây là món ăn độc quyền của quán không cho phép sao chép dưới mọi hình thức"
+        adaptive_height:True
+    MDBoxLayout:
+        adaptive_width:True
+        MDIconButton:
+            icon:'plus'
+            pos_hint:{"center_x":.5,"center_y":.5}
+        MDLabel:
+            text:"1"
+            halign:'center'
+            valign:'center'
+        MDIconButton:
+            icon:"minus"
+            pos_hint:{"center_x":.5,"center_y":.5}
+    MDRaisedButton:
+        size_hint_x:1
+        text:"Đặt món"
+        on_release:
+            app.dathang(root.price,root.rate)
+<Check@MDCheckbox>:
+    group: 'group'
+    radio_icon_normal:"checkbox-blank-circle"
+    size_hint: None, None
+    size: dp(48), dp(48)
+
+<ElementCard@MDCard>:
+    image:''
+    rate:''
+    price:""
+    orientation:'vertical'
+    on_release:app.show_custom_bottom_sheet(root.image,root.price,root.rate)
+    size_hint_x:.5
+    elevation:15
+    size_hint_y:None
+    md_bg_color:app.theme_cls.primary_light
+    height:dp(220)
+    padding:dp(25)
+    spacing:dp(15)
+    radius:[25]
+    MDBoxLayout:
+        height:dp(120)
+        size_hint_y:None
+        Image:
+            source:root.image
+
+    MDBoxLayout:
+        size_hint_y:None
+        height:dp(25)
+        MDLabel:
+            text:root.rate
+
+    MDLabel:
+        size_hint_x:.7
+        text:root.price
+        font_style:'H5'
+
+
+<TabCard@MDCard>:
+    icon:""
+    text:""
+    size_hint_y:None
+    radius:dp(15)
+    height:dp(55)
+    MDIconButton:
+        icon:root.icon
+    MDLabel:
+        text:root.text
+        text_color: 0, 0, 1, 1
+
+
+
